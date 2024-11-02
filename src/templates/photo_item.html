@@ -1,0 +1,13 @@
+<div id="photo--{{ photo.id }}" class="card">
+    <div class="polaroid">
+        <img src="{{ photo.image }}" alt="{{ photo.title }}">
+        <div class="container">
+            <h2>{{ photo.title }}</h2>
+            <p>{{ photo.description }}</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="edit-button" hx-get="{{ url_for('photo_bp.edit_photo_form', photo_id=photo.id) }}" hx-target="#form">Editar</button>
+        <button class="delete-button" hx-delete="{{ url_for('photo_bp.delete_photo', photo_id=photo.id) }}" hx-target="#form">Eliminar</button>
+    </div>
+</div>

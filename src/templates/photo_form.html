@@ -1,0 +1,16 @@
+<div class="form-content">
+    <div class="form-header">
+        <h5 class="form-title">{{ "Editar Foto" if photo else "Añadir Foto" }}</h5>
+    </div>
+    <div class="form-body">
+        <form hx-post="{{ url_for('photo_bp.create_photo') if not photo else url_for('photo_bp.update_photo', photo_id=photo.id) }}" hx-target="#photo-list" hx-swap="beforeend">
+            <label for="title">Título</label><br>
+            <input type="text" name="title" class="form-line" value="{{ photo.title if photo else '' }}" required><br>
+            <label for="description">Descripción</label><br>
+            <input type="text" name="description" class="form-line" value="{{ photo.description if photo else '' }}"><br>
+            <label for="image">URL de imagen</label><br>
+            <input type="url" name="image" class="form-line" value="{{ photo.image if photo else '' }}" required><br>
+            <button type="submit" class="submit-button">{{ "Actualizar" if photo else "Crear" }}</button>
+        </form>
+    </div>
+</div>
