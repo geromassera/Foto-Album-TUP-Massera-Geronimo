@@ -16,7 +16,7 @@ def index() -> str:
 def new_photo_form() -> str:
     return render_template('photo_form.html')
 
-@photo_bp.route('/photos', methods=['POST'])
+@photo_bp.route('/photos',methods=['POST'])
 def create_photo() -> str:
     data: Tuple[Any] = request.form
     
@@ -38,7 +38,7 @@ def edit_photo_form(photo_id: int) -> str:
     photo: Photo = Photo.query.get_or_404(photo_id)
     return render_template('photo_form.html', photo=photo)
     
-@photo_bp.route('/photos/<int:photo_id>', methods=['DELETE'])
+@photo_bp.route('/photos/<int:photo_id>',methods=['DELETE'])
 def delete_photo(photo_id: int) -> str:
     photo: Photo = Photo.query.get_or_404(photo_id)
         
@@ -49,7 +49,7 @@ def delete_photo(photo_id: int) -> str:
         
     return redirect(url_for('photo_bp.index', photos=photos))
     
-@photo_bp.route('/photos/<int:photo_id>', methods=['GET', 'POST'])
+@photo_bp.route("/photos/<int:photo_id>",methods=['GET', 'POST'])
 def update_photo(photo_id: int) -> str:
     photo: Photo = Photo.query.get_or_404(photo_id)
     
@@ -58,7 +58,7 @@ def update_photo(photo_id: int) -> str:
 
         
         try:
-            photo_data: PhotoCreateForm = PhotoCreateForm(title=data['title'],description=data['description'], image=str(data['image']))
+            photo_data: PhotoCreateForm = PhotoCreateForm(title=data['title'], description=data['description'], image=str(data['image']))
 
         except ValueError as e:
             return jsonify({"error": e}), 400
@@ -70,5 +70,6 @@ def update_photo(photo_id: int) -> str:
         db.session.commit()
         
         return redirect(url_for('photo_bp.update_photo', photo_id=photo.id))
+    
     
     return render_template('photo_item.html', photo=photo)   
