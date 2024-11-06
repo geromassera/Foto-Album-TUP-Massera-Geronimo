@@ -5,7 +5,15 @@
 
 body{
     margin: 0;
-    background-color: #f1ffff
+    background-color: #e8e8e8;
+}
+
+button{
+    transition-duration: 0.3s;
+}
+.title-button{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .polaroid {
@@ -13,8 +21,16 @@ body{
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
+    max-width: 24rem;
+    max-height: max-content;
+    margin: 0 auto;
+    transition-duration: 0.4s;
+    margin-top: 20px;
 }
 
+.polaroid:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}   
 .polaroid img{
     width: 100%;
     height: auto;
@@ -35,29 +51,63 @@ body{
 }
 
 .edit-button{
+    border: 2px solid #11d4d4;
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.edit-button:hover{
     background-color: #11d4d4;
     color: #ffffff;
+}
+.delete-button{
+    border: 2px solid #f44336;
+    color: #000000;
     font-size: 20px;
     cursor: pointer;
     padding: 10px 20px;
+    border-radius: 20px;
 }
-
-.delete-button{
+.delete-button:hover{
     background-color: #f44336;
     color: #ffffff;
+}
+.submit-button{
+    border: 2px solid #1183d4;
+    color: #000000;
     font-size: 20px;
     cursor: pointer;
     padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    border-radius: 20px;
 }
 
-.submit-button{
+.submit-button:hover{
     background-color: #1183d4;
     color: #ffffff;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 10px 20px;
 }
 
+.edit-button:hover, .delete-button:hover, .submit-button:hover, .add-button:hover, .reload-button:hover{
+    cursor: pointer;
+}   
+.reload-button{
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid grey;
+    border-radius: 20px;
+}
+
+.reload-button:hover{
+    background-color: grey;
+    color: #ffffff;
+}
 .form-title{
     font-size: 30px;
     background-color: #11d4d4;
@@ -67,24 +117,32 @@ body{
 
 .form-content{
     padding: 10px 20px;
-    background-color: #ffffff;
+    background-color: #e8e8e8;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     border: 1px solid #11d4d4;
+    max-width: 50rem;
+    margin: 0 auto;
 }
 
 .form-line{
-    width: 100%;
+    width: 97%;
     padding: 5px 10px;
     font-size: 20px;
 }
 
 .add-button{
-    background-color: #11d493;
-    color: #ffffff;
+    color: #000000;
     font-size: 20px;
     cursor: pointer;
     padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #11d493;
 }
 
+.add-button:hover{
+    background-color: #11d493;
+    color: #ffffff;
+}
 .form{
     display: block;
 }
@@ -92,4 +150,11 @@ body{
 label{
     font-size: 20px;
     margin-bottom: 5px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
 }
